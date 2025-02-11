@@ -25,9 +25,14 @@ function moveRandomEl(elm) {
     }
 
     if (attempts % 5 === 0) {
+        let popupMessage = document.createElement("div");
+        popupMessage.textContent = "ENOUGH! YOU HAVE TO SAY YES NOW! 😡🔥";
+        popupMessage.style = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: yellow; color: black; padding: 15px; font-size: 20px; border-radius: 8px;";
+        document.body.appendChild(popupMessage);
+
         setTimeout(() => {
-            alert("ENOUGH! YOU HAVE TO SAY YES NOW! 😡🔥");
-        }, 200);
+            popupMessage.remove();
+        }, 2000);
     }
 }
 
