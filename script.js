@@ -12,19 +12,19 @@ function moveRandomEl(elm) {
     elm.style.fontSize = size + "%"; 
 
     speed -= 10;
-    if (speed < 30) {
-        speed = 80; 
-    }
+    if (speed < 30) speed = 50;
 
     if (attempts === 3) {
         document.body.style.backgroundColor = "red";
         document.body.style.color = "white";
         document.body.style.fontWeight = "bold";
-        document.body.innerHTML += "<p style='text-align:center; font-size: 24px;'>Bass nee POKEMONN, haan kaii do ne</p>";
+        document.body.innerHTML += "<p style='text-align:center; font-size: 24px;'>Bass ne POKEMONN, PLEASE HAAN KAHI DO NE</p>";
     }
 
     if (attempts === 5) {
-        alert("Bass nee POKEMONN, haan kaii do ne");
+        setTimeout(() => {
+            alert("SAY YES TO ME LOVEE");
+        }, 500);
     }
 }
 
@@ -33,9 +33,6 @@ const moveRandom = document.querySelector("#move-random");
 if (moveRandom) {
     function moveNoButton(e) {
         attempts++;
-        if (attempts > 5) {
-            alert("naa dabavsoo ne NO ne, YES kari do (muaahh muaahh)");
-        }
         moveRandomEl(e.target);
     }
 
