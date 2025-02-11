@@ -18,15 +18,15 @@ function moveRandomEl(elm) {
         document.body.style.color = "white";
         document.body.style.fontWeight = "bold";
         let angryMsg = document.createElement("p");
-        angryMsg.textContent = "BASS NE MAARA CUTTIIE, MEHNAT NAHI KAROO";
+        angryMsg.textContent = "😡 STOP PLAYING! JUST SAY YES! 😡";
         angryMsg.style.textAlign = "center";
         angryMsg.style.fontSize = "24px";
         document.body.appendChild(angryMsg);
     }
 
-    if (attempts === 5) {
+    if (attempts % 5 === 0) {
         setTimeout(() => {
-            alert("MAARO CUTTIE, CHALLO HAAN KAHI DO MAARA SAATHE AAVVA");
+            alert("ENOUGH! YOU HAVE TO SAY YES NOW! 😡🔥");
         }, 200);
     }
 }
