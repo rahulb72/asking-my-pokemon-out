@@ -1,35 +1,34 @@
-let speed = 80;
-let size = 100;
-let attempts = 0;
+let speed = 80; // Start movement range
+let size = 100; // Button size percentage
+let attempts = 0; // Track how many times she tries to click "No"
 
 function moveRandomEl(elm) {
     elm.style.position = "absolute";
     elm.style.top = Math.floor(Math.random() * speed) + "%";
     elm.style.left = Math.floor(Math.random() * speed) + "%";
 
-    size -= 10;
-    if (size < 30) size = 30;
-    elm.style.fontSize = size + "%";
+    // Make the "No" button smaller each time
+    size -= 10; 
+    if (size < 30) size = 30; // Minimum size
+    elm.style.fontSize = size + "%"; 
 
-    speed = Math.max(speed - 10, 50);
+    // Decrease speed, but reset if too low
+    speed -= 10;
+    if (speed < 30) {
+        speed = 80; 
+    }
 
+    // Activate "Angry Mode" after 3 tries
     if (attempts === 3) {
         document.body.style.backgroundColor = "red";
         document.body.style.color = "white";
         document.body.style.fontWeight = "bold";
-        let angryMsg = document.createElement("p");
-        angryMsg.textContent = "BASS NE MAARA CUTTIIE, MEHNAT NAHI KAROO";
-        angryMsg.style.textAlign = "center";
-        angryMsg.style.fontSize = "24px";
-        document.body.appendChild(angryMsg);
+        document.body.innerHTML += "<p style='text-align:center; font-size: 24px;'>😡 STOP PLAYING! JUST SAY YES! 😡</p>";
     }
 
+    // Super Angry Mode after 5 tries
     if (attempts === 5) {
-        alert("Arreyy Arrey CUTTIE, CHALLO HAAN KAHI DO MAARA SAATHE AAVVA");
-    }
-
-    if (attempts === 10) {
-        alert("Challo challo haan kahi do, majja aavse tamnnee");
+        alert("ENOUGH! YOU HAVE TO SAY YES NOW! 😡🔥");
     }
 }
 
@@ -37,14 +36,14 @@ const moveRandom = document.querySelector("#move-random");
 
 if (moveRandom) {
     function moveNoButton(e) {
-        attempts++;
+        attempts++; // Increase attempts count
+        if (attempts > 5) {
+            alert("BRO, WHY ARE YOU STILL CLICKING NO?! 😡🔥");
+        }
         moveRandomEl(e.target);
     }
 
-    setInterval(() => {
-        if (attempts >= 3) moveRandomEl(moveRandom);
-    }, 1000);
-
-    moveRandom.addEventListener("mouseenter", moveNoButton);
-    moveRandom.addEventListener("touchstart", moveNoButton);
+    // Works on both PC (hover) & Mobile (tap)
+    moveRandom.addEventListener("mouseenter", moveNoButton); // PC hover
+    moveRandom.addEventListener("touchstart", moveNoButton); // Mobile tap
 }
