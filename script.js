@@ -16,3 +16,34 @@ function moveRandomEl(elm) {
     if (attempts === 3) {
         document.body.style.backgroundColor = "red";
         document.body.style.color = "white";
+        document.body.style.fontWeight = "bold";
+        let message = document.createElement("p");
+        message.textContent = "STOP PLAYING! JUST SAY YES!";
+        message.style.textAlign = "center";
+        message.style.fontSize = "24px";
+        document.body.appendChild(message);
+    }
+
+    if (attempts === 5) {
+        alert("ENOUGH! YOU HAVE TO SAY YES NOW!");
+    }
+    if (attempts === 10) {
+        alert("BRO, WHY ARE YOU STILL CLICKING NO?! JUST SAY YES!");
+    }
+}
+
+const moveRandom = document.querySelector("#move-random");
+
+if (moveRandom) {
+    function moveNoButton(e) {
+        attempts++;
+        moveRandomEl(e.target);
+    }
+
+    setInterval(() => {
+        if (attempts >= 3) moveRandomEl(moveRandom);
+    }, 1000);
+
+    moveRandom.addEventListener("mouseenter", moveNoButton);
+    moveRandom.addEventListener("touchstart", moveNoButton);
+}
