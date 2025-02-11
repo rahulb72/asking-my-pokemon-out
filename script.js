@@ -20,7 +20,7 @@ function moveRandomEl(elm) {
         document.body.style.backgroundColor = "red";
         document.body.style.color = "white";
         document.body.style.fontWeight = "bold";
-        document.body.innerHTML += "<p style='text-align:center; font-size: 24px;'>😡 STOP PLAYING! JUST SAY YES! 😡</p>";
+        document.body.innerHTML += "<p style='text-align:center; font-size: 24px;'>Bass nee POKEMONN, haan kaii do ne</p>";
     }
 
     if (attempts === 5) {
