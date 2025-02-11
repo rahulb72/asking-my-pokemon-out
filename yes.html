@@ -28,17 +28,18 @@
             <h1>Hehehe, thenkkk youuu cuttiiee, i kneww it!</h1>
         </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.0.0"></script>
-<script>
-    function launchConfetti() {
+        <script>
+    let script = document.createElement("script");
+    script.src = "https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0";
+    script.onload = function() {
         confetti({
-            particleCount: 200,
-            spread: 90,
+            particleCount: 300,
+            spread: 120,
+            startVelocity: 40,
             origin: { y: 0.6 }
         });
-    }
-
-    window.onload = launchConfetti;
+    };
+    document.head.appendChild(script);
 </script>
     </body>
 </html>
