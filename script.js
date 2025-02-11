@@ -18,21 +18,18 @@ function moveRandomEl(elm) {
         document.body.style.color = "white";
         document.body.style.fontWeight = "bold";
         let angryMsg = document.createElement("p");
-        angryMsg.textContent = "😡 STOP PLAYING! JUST SAY YES! 😡";
+        angryMsg.textContent = "BASS NE MAARA CUTTIIE, MEHNAT NAHI KAROO";
         angryMsg.style.textAlign = "center";
         angryMsg.style.fontSize = "24px";
         document.body.appendChild(angryMsg);
     }
 
-    if (attempts % 5 === 0) {
-        let popupMessage = document.createElement("div");
-        popupMessage.textContent = "ENOUGH! YOU HAVE TO SAY YES NOW! 😡🔥";
-        popupMessage.style = "position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: yellow; color: black; padding: 15px; font-size: 20px; border-radius: 8px;";
-        document.body.appendChild(popupMessage);
+    if (attempts === 5) {
+        alert("Arreyy Arrey CUTTIE, CHALLO HAAN KAHI DO MAARA SAATHE AAVVA");
+    }
 
-        setTimeout(() => {
-            popupMessage.remove();
-        }, 2000);
+    if (attempts === 10) {
+        alert("Challo challo haan kahi do, majja aavse tamnnee");
     }
 }
 
